@@ -1,0 +1,14 @@
+.desktop-width{
+    width: 100%;
+    min-width: 1200px;
+}
+.tablet-width{
+    width: 100%;
+    min-width: 768px;
+    max-width: 1199px;
+}
+.mobile-width{
+    width: 100%;
+    min-width: 320px;
+    max-width: 767px;
+}

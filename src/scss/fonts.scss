@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Exo2.0';
+    font-weight: 200;
+    font-style: normal;
+    src: local('Exo2.0'),
+         url('../fonts/Exo2.0-Thin.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Trebuchet MS';
+    src: local('Trebuchet MS Bold'), local('TrebuchetMS-Bold'),
+        url('../fonts/TrebuchetMS-Bold.woff') format('woff'),
+        url('../fonts/TrebuchetMS-Bold.ttf') format('truetype'),
+        url('../fonts/TrebuchetMS-Bold.eot') format('eot');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Trebuchet MS';
+    src: local('Trebuchet MS'), local('TrebuchetMS'),
+        url('../fonts/TrebuchetMS.woff') format('woff'),
+        url('../fonts/TrebuchetMS.ttf') format('truetype'),
+        url('../fonts/TrebuchetMS.ttf') format('eot');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+.h2-text{
+    font-family: 'Exo2.0', 'Arial', sans-serif;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 200;
+}
