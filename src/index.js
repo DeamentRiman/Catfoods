@@ -4,7 +4,8 @@ let productItems = document.querySelectorAll('.product-item');
 let productItemCards = document.querySelectorAll('.product-item__card');
 let productDescription = document.querySelectorAll('.product-item__description');
 let productQuestions = document.querySelectorAll('.product-item__question');
-let productBuy = document.querySelectorAll('.product-item__buy');
+let productBuy = document.getElementsByClassName('product-item__buy');
+productBuy = Array.from(productBuy);
 
 const DISABLED_VALUES = {
     0: 'Печалька, с фуа-гра закончился.',
@@ -17,8 +18,16 @@ const SELECTED_VALUES= {
     2: 'Филе из цыплят с трюфелями в бульоне.',
 }
 const DISLAKED_FOOD = 'Котэ не одобряет?';
-const PRODUCT_BUY = '<p class="product-item__question">Чего сидишь? Порадуй котэ, <a href="#" class="product-item__buy">купи.</a></p>';
-const PRODUCT_DESCRIPTION = productDescription[0].textContent;
+const PRODUCT_BUY = `Чего сидишь? Порадуй котэ, <a href="#" class="product-item__buy">купи.</a>`;
+const PRODUCT_DESCRIPTION = 'Сказочное заморское яство';
+
+function productBuyFunction(productBuy) {
+    for (let i = 0; i < productBuy.length; i++) {
+        productBuy[i].addEventListener('click', (evt)=> {
+            productQuestions[i].textContent = SELECTED_VALUES[i];     
+            productItems[i].classList.add('selected');
+    });
+}};
 
 for (let i = 0; i < productItemCards.length; i++){
     if (productItems[i].classList.contains('disabled')) {
@@ -45,17 +54,18 @@ for (let i = 0; i < productItemCards.length; i++){
         }
         else if (productItems[i].classList.contains('selected')) {
             evt.preventDefault();
-            productItems[i].classList.remove('selected');
             productDescription[i].textContent = PRODUCT_DESCRIPTION;
             productQuestions[i].innerHTML = PRODUCT_BUY;
+            productBuy = document.getElementsByClassName('product-item__buy');
+            productBuy = Array.from(productBuy);
+            productBuyFunction(productBuy);
+            productItems[i].classList.remove('selected');
+
         } else {
             productItems[i].classList.add('selected');
             productQuestions[i].textContent = SELECTED_VALUES[i];       
         }
     });
-    productBuy[i].addEventListener('click', (evt)=> {
-        evt.preventDefault();
-        productQuestions[i].textContent = SELECTED_VALUES[i];     
-        productItems[i].classList.add('selected');
-    });
+    productBuyFunction(productBuy);
 }
+
