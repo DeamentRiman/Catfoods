@@ -12,6 +12,7 @@
     "author": "Svetlana Dustova",
     "devDependencies": {
         "@babel/core": "^7.17.10",
+        "@babel/plugin-syntax-export-default-from": "^7.16.7",
         "@babel/preset-env": "^7.17.10",
         "babel-loader": "^8.2.5",
         "css-loader": "^6.7.1",

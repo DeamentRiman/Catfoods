@@ -1,4 +1,5 @@
 import './scss/styles.scss';
+import {DISABLED_VALUES, SELECTED_VALUES, DISLAKED_FOOD, PRODUCT_BUY, PRODUCT_DESCRIPTION} from './js/variables.js';
 
 let productItems = document.querySelectorAll('.product-item');
 let productItemCards = document.querySelectorAll('.product-item__card');
@@ -6,20 +7,6 @@ let productDescription = document.querySelectorAll('.product-item__description')
 let productQuestions = document.querySelectorAll('.product-item__question');
 let productBuy = document.getElementsByClassName('product-item__buy');
 productBuy = Array.from(productBuy);
-
-const DISABLED_VALUES = {
-    0: 'Печалька, с фуа-гра закончился.',
-    1: 'Печалька, с рыбой закончился.',
-    2: 'Печалька, с курой закончился.',
-}
-const SELECTED_VALUES= {
-    0: 'Печень утки разварная с артишоками.',
-    1: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
-    2: 'Филе из цыплят с трюфелями в бульоне.',
-}
-const DISLAKED_FOOD = 'Котэ не одобряет?';
-const PRODUCT_BUY = `Чего сидишь? Порадуй котэ, <a href="#" class="product-item__buy">купи.</a>`;
-const PRODUCT_DESCRIPTION = 'Сказочное заморское яство';
 
 function productBuyFunction(productBuy) {
     for (let i = 0; i < productBuy.length; i++) {
@@ -40,12 +27,17 @@ for (let i = 0; i < productItemCards.length; i++){
 
     productItemCards[i].addEventListener('mouseover', (evt)=>{
         evt.preventDefault();
-        if (productItems[i].classList.contains('selected')) {
+        if (productItems[i].classList.contains('selected') === true) {
             productItemCards[i].addEventListener('mouseout', (evt)=>{
+                if (productItems[i].classList.contains('selected') === true) {
                 evt.preventDefault();
                 productDescription[i].textContent = DISLAKED_FOOD;
-            })
-        };
+        } else {
+            productItemCards[i].addEventListener('mouseout', ()=>{
+            productDescription[i].textContent = PRODUCT_DESCRIPTION;
+            });
+            } 
+        })}     
     });
 
     productItemCards[i].addEventListener('click', (evt) => {
