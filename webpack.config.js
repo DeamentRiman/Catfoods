@@ -32,6 +32,10 @@ module.exports = {
                     {
                       // Options
                     },
+                    "autoprefixer",
+                    {
+                      // Options
+                    },
                   ],
                 ],
               },
@@ -66,7 +70,9 @@ module.exports = {
       ],
     },
     plugins: [
-        new MiniCss(),
+        new MiniCss({
+          filename: 'styles.css',
+        }),
         new HtmlWebpackPlugin({
           template: 'src/index.html',
         }),

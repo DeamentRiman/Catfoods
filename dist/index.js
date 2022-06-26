@@ -147,14 +147,18 @@ var _loop2 = function _loop2(i) {
   productItemCards[i].addEventListener('mouseover', function (evt) {
     evt.preventDefault();
 
-    if (productItems[i].classList.contains('selected')) {
+    if (productItems[i].classList.contains('selected') === true) {
       productItemCards[i].addEventListener('mouseout', function (evt) {
-        evt.preventDefault();
-        productDescription[i].textContent = _js_variables_js__WEBPACK_IMPORTED_MODULE_1__.DISLAKED_FOOD;
+        if (productItems[i].classList.contains('selected') === true) {
+          evt.preventDefault();
+          productDescription[i].textContent = _js_variables_js__WEBPACK_IMPORTED_MODULE_1__.DISLAKED_FOOD;
+        } else {
+          productItemCards[i].addEventListener('mouseout', function () {
+            productDescription[i].textContent = _js_variables_js__WEBPACK_IMPORTED_MODULE_1__.PRODUCT_DESCRIPTION;
+          });
+        }
       });
     }
-
-    ;
   });
   productItemCards[i].addEventListener('click', function (evt) {
     if (productItems[i].classList.contains('disabled')) {
