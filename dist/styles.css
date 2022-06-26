@@ -538,6 +538,11 @@ template {
   color: var(--title-text);
   text-align: center;
 }
+@media (max-width: 400px) {
+  .product-item__question {
+    max-width: 280px;
+  }
+}
 
 .product-item__buy {
   color: var(--blue-text);
